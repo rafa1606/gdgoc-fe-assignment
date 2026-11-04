@@ -4,12 +4,19 @@ type SectionHeaderProps = {
   headingId: string
   label: string
   title: string
-  description: string
+  description?: string
+  wide?: boolean
 }
 
-export function SectionHeader({ headingId, label, title, description }: SectionHeaderProps) {
+export function SectionHeader({
+  headingId,
+  label,
+  title,
+  description,
+  wide = false,
+}: SectionHeaderProps) {
   return (
-    <div className="flex max-w-200 flex-col gap-4.5">
+    <div className={`flex flex-col gap-4.5 ${wide ? 'max-w-240' : 'max-w-200'}`}>
       <SectionLabel>{label}</SectionLabel>
       <h2
         id={headingId}
@@ -17,7 +24,7 @@ export function SectionHeader({ headingId, label, title, description }: SectionH
       >
         {title}
       </h2>
-      <p className="text-lg leading-7 text-muted">{description}</p>
+      {description && <p className="text-lg leading-7 text-muted">{description}</p>}
     </div>
   )
 }
