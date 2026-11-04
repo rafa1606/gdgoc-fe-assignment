@@ -138,7 +138,7 @@ export function ContactForm({ categoriesState, categoryId, onCategoryChange }: C
             disabled={categories.length === 0}
             value={categoryId ?? ''}
             onChange={(event) => onCategoryChange(event.target.value)}
-            className={`${controlClass} h-13.5 appearance-none pr-12`}
+            className={`${controlClass} h-13.5 appearance-none pr-12 text-muted`}
           >
             {categories.length === 0 && <option value="">{categoryPlaceholder(categoriesState)}</option>}
             {categories.map((category) => (
