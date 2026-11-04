@@ -4,7 +4,7 @@ import { useFetch } from '../../hooks/useFetch'
 import { EmptyState } from '../ui/EmptyState'
 import { ErrorState } from '../ui/ErrorState'
 import { LoadingState } from '../ui/LoadingState'
-import { SectionLabel } from '../ui/SectionLabel'
+import { SectionHeader } from './SectionHeader'
 import { TrackCard } from './TrackCard'
 
 export function TracksSection() {
@@ -18,19 +18,12 @@ export function TracksSection() {
       aria-labelledby="tracks-heading"
       className="px-4 py-12 sm:px-8 xl:px-24 xl:py-20"
     >
-      <div className="flex max-w-200 flex-col gap-4.5">
-        <SectionLabel>Explore your interests</SectionLabel>
-        <h2
-          id="tracks-heading"
-          className="text-3xl font-bold leading-[1.125] sm:text-4xl xl:text-5xl"
-        >
-          Three ways in. Plenty of ways forward.
-        </h2>
-        <p className="text-lg leading-7 text-muted">
-          These pathways are starting points, not boxes. Follow one deeply or bring different
-          skills together.
-        </p>
-      </div>
+      <SectionHeader
+        headingId="tracks-heading"
+        label="Explore your interests"
+        title="Three ways in. Plenty of ways forward."
+        description="These pathways are starting points, not boxes. Follow one deeply or bring different skills together."
+      />
 
       <div className="mt-9">
         {state.status === 'loading' && <LoadingState label="Loading tracks..." />}
