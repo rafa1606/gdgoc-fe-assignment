@@ -17,7 +17,7 @@ export function FormField({ id, label, required = false, error, children }: Form
       </label>
       {children}
       {error && (
-        <p id={`${id}-error`} className="text-[13px] leading-[18px] text-google-red">
+        <p id={`${id}-error`} className="text-[13px] leading-[18px] text-error">
           {error}
         </p>
       )}
