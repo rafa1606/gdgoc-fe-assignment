@@ -1,12 +1,16 @@
 import { useSearchParams } from 'react-router'
-import { getInquiryCategories } from '../../api/endpoints'
-import { useFetch } from '../../hooks/useFetch'
+import type { FetchState } from '../../hooks/useFetch'
+import type { InquiryCategory } from '../../types/api'
 import { CommunityUpdates } from './CommunityUpdates'
 import { ContactForm } from './ContactForm'
 import { InquiryCategories } from './InquiryCategories'
 
-export function ContactWorkspace() {
-  const { state, retry } = useFetch(getInquiryCategories)
+type ContactWorkspaceProps = {
+  state: FetchState<InquiryCategory[]>
+  onRetry: () => void
+}
+
+export function ContactWorkspace({ state, onRetry }: ContactWorkspaceProps) {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const categories = state.status === 'success' ? state.data : []
@@ -24,7 +28,7 @@ export function ContactWorkspace() {
         <div className="flex flex-col gap-8">
           <InquiryCategories
             state={state}
-            onRetry={retry}
+            onRetry={onRetry}
             selectedId={selectedId}
             onSelect={selectCategory}
           />

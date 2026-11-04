@@ -1,11 +1,17 @@
+import { getInquiryCategories } from '../api/endpoints'
+import { ContactGuidance } from '../components/contact/ContactGuidance'
 import { ContactIntro } from '../components/contact/ContactIntro'
 import { ContactWorkspace } from '../components/contact/ContactWorkspace'
+import { useFetch } from '../hooks/useFetch'
 
 export function Contact() {
+  const { state, retry } = useFetch(getInquiryCategories)
+
   return (
     <>
       <ContactIntro />
-      <ContactWorkspace />
+      <ContactWorkspace state={state} onRetry={retry} />
+      <ContactGuidance state={state} />
     </>
   )
 }
