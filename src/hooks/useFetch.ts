@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ApiError } from '../api/client'
 
-type FetchState<T> =
+export type FetchState<T> =
   | { status: 'loading' }
   | { status: 'error'; error: ApiError }
   | { status: 'success'; data: T }
