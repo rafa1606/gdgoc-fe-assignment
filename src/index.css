@@ -1,1 +1,28 @@
 @import "tailwindcss";
+@import "@fontsource/google-sans/latin-400.css";
+@import "@fontsource/google-sans/latin-500.css";
+@import "@fontsource/google-sans/latin-700.css";
+
+@theme {
+  --font-sans: "Google Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-google-blue: #4284f4;
+  --color-google-blue-dark: #1967d2;
+  --color-google-red: #ea4335;
+  --color-google-yellow: #f9ab00;
+  --color-google-green: #34a853;
+
+  --color-tint-blue: #eaf2ff;
+  --color-tint-red: #fdedea;
+  --color-tint-yellow: #fff7df;
+  --color-tint-green: #eaf5ed;
+
+  --color-ink: #242424;
+  --color-muted: #5f6368;
+  --color-line: #dadce0;
+  --color-surface: #f1f3f4;
+}
+
+body {
+  color: var(--color-ink);
+}
