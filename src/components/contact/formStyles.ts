@@ -1,0 +1,2 @@
+export const controlClass =
+  'w-full rounded-lg border border-line bg-white px-4 text-base text-ink placeholder:text-muted transition-colors focus:border-google-blue focus:outline-none focus:ring-2 focus:ring-google-blue/30 disabled:cursor-not-allowed disabled:bg-surface disabled:text-muted'

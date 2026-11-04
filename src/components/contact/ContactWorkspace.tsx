@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router'
 import { getInquiryCategories } from '../../api/endpoints'
 import { useFetch } from '../../hooks/useFetch'
 import { CommunityUpdates } from './CommunityUpdates'
+import { ContactForm } from './ContactForm'
 import { InquiryCategories } from './InquiryCategories'
 
 export function ContactWorkspace() {
@@ -29,6 +30,11 @@ export function ContactWorkspace() {
           />
           <CommunityUpdates />
         </div>
+        <ContactForm
+          categoriesState={state}
+          categoryId={selectedId}
+          onCategoryChange={selectCategory}
+        />
       </div>
     </div>
   )
