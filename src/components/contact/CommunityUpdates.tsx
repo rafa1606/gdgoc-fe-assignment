@@ -15,7 +15,7 @@ export function CommunityUpdates() {
         Looking for community updates?
       </h3>
       <p className="text-base leading-[25px] text-muted">
-        Follow <strong className="font-bold text-ink">{instagramHandle}</strong> for learning
+        Follow <strong className="font-bold">{instagramHandle}</strong> for learning
         opportunities and what’s happening in the community.
       </p>
       <a
