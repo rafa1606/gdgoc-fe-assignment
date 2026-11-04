@@ -2,6 +2,7 @@ import { Outlet } from 'react-router'
 import { getNavigation } from '../../api/endpoints'
 import { useFetch } from '../../hooks/useFetch'
 import type { NavItem } from '../../types/api'
+import { Footer } from './Footer'
 import { Navbar } from './Navbar'
 
 const fallbackNavigation: NavItem[] = [
@@ -21,6 +22,7 @@ export function Layout() {
       <main className="flex-1">
         <Outlet />
       </main>
+      <Footer items={items} />
     </div>
   )
 }
