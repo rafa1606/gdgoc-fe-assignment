@@ -34,12 +34,12 @@ export function Footer({ items }: FooterProps) {
           </div>
 
           <nav aria-label="Footer" className="flex flex-col gap-3.5 md:w-37.5">
-            <p className="font-bold text-black">Explore</p>
+            <p className="font-bold leading-5 text-black">Explore</p>
             {items.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-[15px] text-muted transition-colors hover:text-google-blue-dark"
+                className="text-[15px] leading-[19px] text-muted transition-colors hover:text-google-blue-dark"
               >
                 {item.label}
               </Link>
@@ -47,8 +47,10 @@ export function Footer({ items }: FooterProps) {
           </nav>
 
           <div className="flex flex-col gap-4 md:w-65">
-            <p className="font-bold text-black">Keep in the loop</p>
-            {stats && <p className="text-lg text-google-blue-dark">{stats.social.instagram}</p>}
+            <p className="font-bold leading-5 text-black">Keep in the loop</p>
+            {stats && (
+              <p className="text-lg leading-[23px] text-google-blue-dark">{stats.social.instagram}</p>
+            )}
             <div className="flex gap-4">
               {stats && (
                 <a
@@ -75,7 +77,7 @@ export function Footer({ items }: FooterProps) {
 
         <div className="h-px bg-line" />
 
-        <div className="flex flex-col gap-2 text-xs text-muted sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-2 text-xs leading-[15px] text-muted sm:flex-row sm:justify-between">
           <p>© GDGoC Universitas Gadjah Mada • 2026/2027</p>
           <p>Made for the campus. Open to possibilities.</p>
         </div>
