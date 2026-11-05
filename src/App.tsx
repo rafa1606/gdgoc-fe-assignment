@@ -3,16 +3,14 @@ import { EmptyState } from './components/ui/EmptyState'
 import { Layout } from './components/layout/Layout'
 import { About } from './pages/About'
 import { Contact } from './pages/Contact'
+import { Home } from './pages/Home'
 import { Overview } from './pages/Overview'
 
 function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route
-          path="/"
-          element={<EmptyState title="Home" description="This page is coming soon." />}
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/overview" element={<Overview />} />
         <Route path="/contact" element={<Contact />} />
