@@ -22,6 +22,30 @@
   --color-muted: #5f6368;
   --color-line: #dadce0;
   --color-surface: #f1f3f4;
+
+    /* Animasi ringan */
+  --animate-page-in: page-in 0.3s ease-out both;
+  --animate-fade-in: fade-in 0.2s ease-out both;
+
+  @keyframes page-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 body {

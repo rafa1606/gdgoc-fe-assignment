@@ -30,7 +30,7 @@ export function FaqItem({ faq, isOpen, onToggle }: FaqItemProps) {
         </button>
       </h3>
       {isOpen && (
-        <p id={answerId} className="mt-3.5 text-base leading-[25px] text-muted">
+        <p id={answerId} className="mt-3.5 text-base leading-[25px] text-muted motion-safe:animate-fade-in">
           {faq.answer}
         </p>
       )}
