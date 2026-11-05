@@ -49,3 +49,34 @@ export const homeTracks: TrackSummary[] = [
     open: true,
   },
 ]
+
+export type ProgramFormat = {
+  id: string
+  title: string
+  description: string
+  detail: string
+}
+
+export const programFormats: ProgramFormat[] = [
+  {
+    id: 'study-groups',
+    title: 'Study together',
+    description:
+      'Work through foundations in peer learning sessions. Bring your questions; leave with a next step.',
+    detail: 'Study groups & guided practice',
+  },
+  {
+    id: 'hands-on-workshops',
+    title: 'Try it hands-on',
+    description:
+      'Explore a tool or technique in a workshop, then put it to work in a small experiment.',
+    detail: 'Workshops & technical sessions',
+  },
+  {
+    id: 'project-circles',
+    title: 'Share the process',
+    description:
+      'Exchange feedback, explain your decisions, and learn from different ways of thinking.',
+    detail: 'Project circles & sharing sessions',
+  },
+]
