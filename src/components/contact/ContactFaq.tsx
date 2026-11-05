@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router'
 import { getFaqs } from '../../api/endpoints'
 import { useFetch } from '../../hooks/useFetch'
@@ -29,6 +29,18 @@ export function ContactFaq({ categoriesState }: ContactFaqProps) {
   const { state, retry } = useFetch(fetchAllFaqs)
   const [searchParams, setSearchParams] = useSearchParams()
   const [openIds, setOpenIds] = useState<string[]>([])
+  
+  const sectionRef = useRef<HTMLElement>(null)
+
+  // Nilai awal saja: apakah halaman dibuka lewat tautan yang sudah membawa ?faq=...
+  const [openedWithFilter] = useState(() => searchParams.has('faq'))
+
+  // Kalau iya, langsung gulir ke section ini. Klik chip setelahnya tidak menggulir
+  useEffect(() => {
+    if (openedWithFilter) {
+      sectionRef.current?.scrollIntoView({ behavior: 'instant' })
+    }
+  }, [openedWithFilter])
 
   const faqs = state.status === 'success' ? state.data : []
 
@@ -70,6 +82,7 @@ export function ContactFaq({ categoriesState }: ContactFaqProps) {
 
   return (
     <section
+      ref={sectionRef}
       aria-labelledby="contact-faq-heading"
       className="border-t border-line px-4 py-12 sm:px-8 xl:px-24 xl:py-18"
     >
