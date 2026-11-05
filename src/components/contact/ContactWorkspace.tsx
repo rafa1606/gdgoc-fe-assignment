@@ -18,8 +18,16 @@ export function ContactWorkspace({ state, onRetry }: ContactWorkspaceProps) {
   const selectedId =
     categories.find((category) => category.id === requestedId)?.id ?? categories[0]?.id ?? null
 
-  function selectCategory(id: string) {
-    setSearchParams({ category: id }, { replace: true })
+    function selectCategory(id: string) {
+    // Parameter lain di URL (misalnya filter FAQ) tetap dipertahankan
+    setSearchParams(
+      (current) => {
+        const next = new URLSearchParams(current)
+        next.set('category', id)
+        return next
+      },
+      { replace: true },
+    )
   }
 
   return (
