@@ -1,4 +1,4 @@
-import spark from '../../assets/commitment-spark.svg'
+import { SparkIcon } from '../ui/SparkIcon'
 
 export function CommitmentSection() {
   return (
@@ -7,12 +7,7 @@ export function CommitmentSection() {
       className="bg-tint-yellow px-4 py-10 sm:px-8 xl:px-24 xl:py-14"
     >
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8 xl:gap-16">
-        <img
-          src={spark}
-          alt=""
-          aria-hidden="true"
-          className="size-14 shrink-0 sm:size-16 xl:size-18"
-        />
+        <SparkIcon className="size-14 shrink-0 text-google-yellow sm:size-16 xl:size-18" />
         <div className="flex max-w-278 flex-col gap-3.5">
           <h2
             id="commitment-heading"

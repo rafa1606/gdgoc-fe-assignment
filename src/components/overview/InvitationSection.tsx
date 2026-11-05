@@ -1,23 +1,13 @@
-import { Link } from 'react-router'
-import { ArrowRightIcon } from '../ui/ArrowRightIcon'
+import { ButtonLink } from '../ui/ButtonLink'
 import { SectionLabel } from '../ui/SectionLabel'
+import { TextLink } from '../ui/TextLink'
 
 type InvitationSectionProps = {
   // Tujuan tombol utama: '#id' untuk lompat ke section di halaman ini, selain itu rute lain.
   exploreTo?: string
 }
 
-const exploreClassName =
-  'inline-flex h-13 items-center justify-center gap-4 rounded-lg bg-google-blue px-6 font-medium text-white transition-colors hover:bg-google-blue-dark'
-
 export function InvitationSection({ exploreTo = '#tracks' }: InvitationSectionProps) {
-  const exploreContent = (
-    <>
-      Explore the overview
-      <ArrowRightIcon />
-    </>
-  )
-
   return (
     <section
       aria-labelledby="invitation-heading"
@@ -39,22 +29,8 @@ export function InvitationSection({ exploreTo = '#tracks' }: InvitationSectionPr
         </div>
 
         <div className="flex flex-col items-start gap-4 lg:w-65 lg:shrink-0">
-          {exploreTo.startsWith('#') ? (
-            <a href={exploreTo} className={exploreClassName}>
-              {exploreContent}
-            </a>
-          ) : (
-            <Link to={exploreTo} className={exploreClassName}>
-              {exploreContent}
-            </Link>
-          )}
-          <Link
-            to="/contact"
-            className="group inline-flex items-center gap-3 text-base font-medium leading-5 text-google-blue-dark"
-          >
-            Talk to the community
-            <ArrowRightIcon className="size-5 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+          <ButtonLink to={exploreTo}>Explore the overview</ButtonLink>
+          <TextLink to="/contact">Talk to the community</TextLink>
         </div>
       </div>
     </section>

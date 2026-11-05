@@ -1,12 +1,11 @@
-import { Link } from 'react-router'
 import { getRoles } from '../../api/endpoints'
 import { useFetch } from '../../hooks/useFetch'
 import { curlyApostrophes } from '../../utils/text'
-import { ArrowRightIcon } from '../ui/ArrowRightIcon'
 import { EmptyState } from '../ui/EmptyState'
 import { ErrorState } from '../ui/ErrorState'
 import { LoadingState } from '../ui/LoadingState'
 import { SectionLabel } from '../ui/SectionLabel'
+import { TextLink } from '../ui/TextLink'
 
 export function BelongSection() {
   const { state, retry } = useFetch(getRoles)
@@ -57,13 +56,7 @@ export function BelongSection() {
               </ul>
             ))}
 
-          <Link
-            to="/contact?category=collaboration"
-            className="group inline-flex items-center gap-3 self-start text-base font-medium leading-5 text-google-blue-dark"
-          >
-            Let’s talk about getting involved
-            <ArrowRightIcon className="size-5 transition-transform group-hover:translate-x-0.5" />
-          </Link>
+          <TextLink to="/contact?category=collaboration">Let’s talk about getting involved</TextLink>
         </div>
       </div>
     </section>
