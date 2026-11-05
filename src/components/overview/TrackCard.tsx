@@ -1,19 +1,38 @@
 import { Link } from 'react-router'
 import type { Track } from '../../types/api'
 import { ArrowRightIcon } from '../ui/ArrowRightIcon'
-import researchArtwork from '../../assets/track-research.svg'
-import designArtwork from '../../assets/track-design.svg'
-import developmentArtwork from '../../assets/track-development.svg'
+import researchArtwork from '../../assets/track-research.webp'
+import designArtwork from '../../assets/track-design.webp'
+import developmentArtwork from '../../assets/track-development.webp'
+
+// Ilustrasi diekspor dari Figma @2x dengan latar transparan. Cahaya (glow) di bawah
+// ilustrasi melewati batas bingkai, jadi gambar dibuat lebih besar dari area bertinta
+// dan posisinya diukur dari sudut kiri atas bingkai 400x232
+type TrackArtwork = {
+  src: string
+  width: number
+  height: number
+  className: string
+}
 
 type TrackStyle = {
-  artwork: string | null
+  artwork: TrackArtwork | null
   tint: string
 }
 
 const trackStyles: Record<string, TrackStyle> = {
-  'research-discovery': { artwork: researchArtwork, tint: 'bg-tint-blue' },
-  'design-creativity': { artwork: designArtwork, tint: 'bg-tint-yellow' },
-  development: { artwork: developmentArtwork, tint: 'bg-tint-green' },
+  'research-discovery': {
+    artwork: { src: researchArtwork, width: 817, height: 769, className: '-left-[8.5px] w-[408.5px]' },
+    tint: 'bg-tint-blue',
+  },
+  'design-creativity': {
+    artwork: { src: designArtwork, width: 807, height: 695, className: '-left-[3.5px] w-[403.5px]' },
+    tint: 'bg-tint-yellow',
+  },
+  development: {
+    artwork: { src: developmentArtwork, width: 848, height: 781, className: '-left-[24px] w-[424px]' },
+    tint: 'bg-tint-green',
+  },
 }
 
 const fallbackStyle: TrackStyle = { artwork: null, tint: 'bg-surface' }
@@ -33,22 +52,30 @@ export function TrackCard({ track, selected }: TrackCardProps) {
         selected ? 'border-google-blue ring-2 ring-google-blue' : 'border-line'
       }`}
     >
-      <div className={`relative h-58 shrink-0 overflow-hidden ${style.tint}`}>
+      <div className={`relative h-58 shrink-0 ${style.tint}`}>
         {style.artwork && (
-          <img
-            src={style.artwork}
-            alt=""
-            className="absolute -top-1 left-1/2 size-[257px] max-w-none -translate-x-1/2"
-          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-0 h-58 w-100 -translate-x-1/2"
+          >
+            <img
+              src={style.artwork.src}
+              alt=""
+              width={style.artwork.width}
+              height={style.artwork.height}
+              className={`absolute top-0 h-auto max-w-none ${style.artwork.className}`}
+            />
+          </div>
         )}
       </div>
 
-      <div className="flex flex-1 flex-col gap-4.5 p-7">
-        <p className="text-[11px] font-medium uppercase tracking-[0.06em] text-google-blue-dark">
+      {/* relative: teks tampil di atas glow ilustrasi yang meluber ke area ini */}
+      <div className="relative flex flex-1 flex-col gap-4.5 p-7">
+        <p className="text-[11px] font-medium uppercase leading-[14px] text-google-blue-dark">
           {track.tagline}
         </p>
         <h3 className="text-[28px] font-bold leading-[31px]">{track.name}</h3>
-        <p className="text-base leading-[25px] text-muted">{track.description}</p>
+        <p className="max-w-84 text-base leading-[25px] text-muted">{track.description}</p>
 
         {selected && (
           <p className="rounded-2xl bg-tint-blue px-4 py-3 text-sm leading-6">
@@ -63,7 +90,7 @@ export function TrackCard({ track, selected }: TrackCardProps) {
           {track.open ? (
             <Link
               to={`${track.explore_link}#tracks`}
-              className="group inline-flex items-center gap-3 self-start text-base font-medium text-google-blue-dark"
+              className="group inline-flex items-center gap-3 self-start text-base font-medium leading-5 text-google-blue-dark"
             >
               <span>
                 Explore this track
