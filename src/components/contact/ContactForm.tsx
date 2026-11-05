@@ -178,7 +178,7 @@ export function ContactForm({ categoriesState, categoryId, onCategoryChange }: C
             onChange={(event) => onCategoryChange(event.target.value)}
             aria-invalid={errors.category ? true : undefined}
             aria-describedby={errors.category ? 'category-error' : undefined}
-            className={`${controlClass(Boolean(errors.category))} h-13.5 appearance-none pr-12 text-muted`}
+            className={`${controlClass(Boolean(errors.category))} select-modern h-13.5 appearance-none pr-12 text-muted`}
           >
             {categories.length === 0 && (
               <option value="">{categoryPlaceholder(categoriesState)}</option>
@@ -189,7 +189,7 @@ export function ContactForm({ categoriesState, categoryId, onCategoryChange }: C
               </option>
             ))}
           </select>
-          <ChevronDownIcon className="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 text-google-blue-dark" />
+          <ChevronDownIcon className="select-chevron pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 text-google-blue-dark" />
         </div>
       </FormField>
 

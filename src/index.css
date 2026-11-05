@@ -33,3 +33,70 @@ body {
     scroll-behavior: smooth;
   }
 }
+
+@supports (appearance: base-select) {
+  .select-modern,
+  .select-modern::picker(select) {
+    appearance: base-select;
+  }
+
+  .select-modern {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Panah bawaan disembunyikan, kita pakai ikon chevron sendiri */
+  .select-modern::picker-icon {
+    display: none;
+  }
+
+  .select-chevron {
+    transition: rotate 0.2s ease;
+  }
+
+  .select-modern:open + .select-chevron {
+    rotate: 180deg;
+  }
+
+  .select-modern::picker(select) {
+    margin-top: 8px;
+    padding: 8px;
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    background: #fff;
+    color: var(--color-ink);
+    font: inherit;
+    box-shadow: 0 12px 32px rgb(32 33 36 / 0.16);
+  }
+
+  .select-modern option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 16px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .select-modern option:hover,
+  .select-modern option:focus-visible {
+    background: var(--color-surface);
+    outline: none;
+  }
+
+  .select-modern option:checked {
+    background: var(--color-tint-blue);
+    color: var(--color-google-blue-dark);
+    font-weight: 500;
+  }
+
+  /* Tanda centang pindah ke kanan */
+  .select-modern option::checkmark {
+    order: 1;
+    margin-left: auto;
+    color: var(--color-google-blue-dark);
+  }
+}
