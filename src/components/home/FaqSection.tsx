@@ -15,7 +15,7 @@ export function FaqSection() {
   return (
     <section
       aria-labelledby="faq-heading"
-      className="flex flex-col gap-10 px-4 py-12 sm:px-8 lg:flex-row lg:gap-16 xl:gap-24 xl:px-24 xl:py-22"
+      className="flex flex-col gap-10 px-4 pb-0 pt-12 sm:px-8 lg:flex-row lg:gap-16 xl:gap-24 xl:px-24 xl:py-22"
     >
       <div className="flex flex-col gap-5 lg:w-[35%] lg:shrink-0 xl:w-100">
         <SectionLabel>A few good questions</SectionLabel>
