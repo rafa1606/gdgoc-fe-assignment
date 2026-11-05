@@ -4,6 +4,7 @@ import type { InquiryCategory } from '../../types/api'
 import { ArrowRightIcon } from '../ui/ArrowRightIcon'
 import { LoadingState } from '../ui/LoadingState'
 import { SectionLabel } from '../ui/SectionLabel'
+import { curlyApostrophes } from '../../utils/text'
 
 type ContactGuidanceProps = {
   state: FetchState<InquiryCategory[]>
@@ -24,11 +25,6 @@ const fallbackTip: Tip = {
   id: 'not-sure',
   heading: 'Not sure which category fits?',
   text: 'Choose General inquiry. A clear question is always a good starting point.',
-}
-
-// Teks dari API memakai apostrof lurus, sedangkan desain memakai apostrof melengkung.
-function curlyApostrophes(text: string) {
-  return text.replace(/'/g, '’')
 }
 
 function buildTips(categories: InquiryCategory[]): Tip[] {
