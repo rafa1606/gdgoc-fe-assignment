@@ -80,3 +80,50 @@ export const programFormats: ProgramFormat[] = [
     detail: 'Project circles & sharing sessions',
   },
 ]
+
+export type FirstMove = {
+  title: string
+  description: string
+}
+
+export const firstMoves: FirstMove[] = [
+  {
+    title: 'Follow your curiosity',
+    description: 'Explore the tracks and find a topic you want to understand better.',
+  },
+  {
+    title: 'Learn alongside others',
+    description: 'Join a learning opportunity, ask a question, and share your perspective.',
+  },
+  {
+    title: 'Turn learning into action',
+    description: 'Practice through a project, exchange feedback, and pass something on.',
+  },
+]
+
+export type HomeFaq = {
+  id: string
+  question: string
+  answer: string
+}
+
+export const homeFaqs: HomeFaq[] = [
+  {
+    id: 'need-to-code',
+    question: 'Do I need to know how to code?',
+    answer:
+      'No. Start with an interest in technology and a willingness to learn. Research and design are part of the journey, too.',
+  },
+  {
+    id: 'only-cs',
+    question: 'Is this only for computer science students?',
+    answer:
+      'Different disciplines bring different perspectives. Explore the overview to find a starting point that fits your interests.',
+  },
+  {
+    id: 'find-opportunities',
+    question: 'How can I find learning opportunities?',
+    answer:
+      'Keep an eye on @gdgoc.ugm for community updates. You can also use the contact page to ask about getting involved.',
+  },
+]
