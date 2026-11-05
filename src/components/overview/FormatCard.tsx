@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import type { LearningFormat } from '../../types/api'
 import { ArrowRightIcon } from '../ui/ArrowRightIcon'
+import { cardHover } from '../ui/cardEffects'
 import studyGroupsIcon from '../../assets/format-study-groups.svg'
 import projectCirclesIcon from '../../assets/format-project-circles.svg'
 import workshopsIcon from '../../assets/format-hands-on-workshops.svg'
@@ -42,7 +43,9 @@ export function FormatCard({ format }: FormatCardProps) {
   const contactPath = category ? `/contact?category=${category}` : '/contact'
 
   return (
-    <article className="flex flex-col gap-5 rounded-3xl bg-white p-6 sm:flex-row sm:gap-6 sm:p-7">
+    <article
+      className={`flex flex-col gap-5 rounded-3xl bg-white p-6 sm:flex-row sm:gap-6 sm:p-7 ${cardHover}`}
+    >
       <div
         aria-hidden="true"
         className={`flex size-13 shrink-0 items-center justify-center rounded-2xl ${

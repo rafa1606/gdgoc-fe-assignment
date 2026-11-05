@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import type { TrackSummary } from '../../types/api'
 import { ArrowRightIcon } from '../ui/ArrowRightIcon'
+import { cardHover } from '../ui/cardEffects'
 import researchArtwork from '../../assets/track-research.webp'
 import designArtwork from '../../assets/track-design.webp'
 import developmentArtwork from '../../assets/track-development.webp'
@@ -48,7 +49,7 @@ export function TrackCard({ track, selected = false }: TrackCardProps) {
   return (
     <article
       aria-current={selected ? 'true' : undefined}
-      className={`flex flex-col overflow-hidden rounded-3xl border bg-white ${
+      className={`flex flex-col overflow-hidden rounded-3xl border bg-white ${cardHover} ${
         selected ? 'border-google-blue ring-2 ring-google-blue' : 'border-line'
       }`}
     >
