@@ -20,7 +20,7 @@ export function OverviewIntro() {
         <img
           src={heroArtwork}
           alt=""
-          className="size-full object-contain lg:absolute lg:-left-[15px] lg:-top-[12px] lg:size-[285.73px] lg:max-w-none"
+          className="size-full -translate-x-[14.5%] object-contain lg:absolute lg:-left-[15px] lg:-top-[12px] lg:size-[285.73px] lg:max-w-none lg:translate-x-0"
         />
       </div>
     </section>
