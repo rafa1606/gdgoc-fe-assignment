@@ -18,6 +18,12 @@ export interface Track {
   open: boolean
 }
 
+// Bagian Track yang dipakai kartu. what_you_do hanya tampil saat kartu dipilih
+// jadi halaman yang memakai data statis (Home) boleh tidak mengisinya
+export type TrackSummary = Omit<Track, 'icon' | 'color' | 'what_you_do'> & {
+  what_you_do?: string
+}
+
 export interface Value {
   id: string
   title: string

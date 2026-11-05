@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import type { Track } from '../../types/api'
+import type { TrackSummary } from '../../types/api'
 import { ArrowRightIcon } from '../ui/ArrowRightIcon'
 import researchArtwork from '../../assets/track-research.webp'
 import designArtwork from '../../assets/track-design.webp'
@@ -38,11 +38,11 @@ const trackStyles: Record<string, TrackStyle> = {
 const fallbackStyle: TrackStyle = { artwork: null, tint: 'bg-surface' }
 
 type TrackCardProps = {
-  track: Track
-  selected: boolean
+  track: TrackSummary
+  selected?: boolean
 }
 
-export function TrackCard({ track, selected }: TrackCardProps) {
+export function TrackCard({ track, selected = false }: TrackCardProps) {
   const style = trackStyles[track.id] ?? fallbackStyle
 
   return (
@@ -77,13 +77,14 @@ export function TrackCard({ track, selected }: TrackCardProps) {
         <h3 className="text-[28px] font-bold leading-[31px]">{track.name}</h3>
         <p className="max-w-84 text-base leading-[25px] text-muted">{track.description}</p>
 
-        {selected && (
+        {selected && track.what_you_do && (
           <p className="rounded-2xl bg-tint-blue px-4 py-3 text-sm leading-6">
             <span className="font-medium text-google-blue-dark">What you'll do: </span>
             {track.what_you_do}
           </p>
         )}
 
+        {/* mt-auto: garis, skill, dan link menempel di dasar kartu supaya sejajar antar kartu */}
         <div className="mt-auto flex flex-col gap-4.5">
           <hr className="border-line" />
           <p className="text-[13px] leading-5 text-muted lg:min-h-10">{track.skills.join(' · ')}</p>

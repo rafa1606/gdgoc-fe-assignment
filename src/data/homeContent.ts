@@ -1,5 +1,7 @@
-// Teks halaman Home mengikuti desain Figma. Data ini tidak ada di API
-// (teks dan urutan API berbeda), jadi disimpan statis dan diberi tipe.
+import type { TrackSummary } from '../types/api'
+
+// Teks halaman Home mengikuti desain Figma,dan Data ini tidak ada di API
+// (teks dan urutan API berbeda), jadi disimpan statis dan diberi tipe
 
 export type CommunityPromise = {
   text: string
@@ -11,4 +13,39 @@ export const promises: CommunityPromise[] = [
   { text: 'Learn by doing', accent: 'bg-google-blue' },
   { text: 'Connect across disciplines', accent: 'bg-google-red' },
   { text: 'Build with purpose', accent: 'bg-google-green' },
+]
+
+export const communityAttributes = ['Student-led', 'Peer-powered', 'Curiosity-first']
+
+export const homeTracks: TrackSummary[] = [
+  {
+    id: 'research-discovery',
+    name: 'Research & discovery',
+    tagline: 'Explore the why',
+    description:
+      'Ask better questions, understand people, and turn insight into a clear problem worth solving.',
+    skills: ['Problem framing', 'User research', 'Product thinking'],
+    explore_link: '/overview?track=research-discovery',
+    open: true,
+  },
+  {
+    id: 'design-creativity',
+    name: 'Design & creativity',
+    tagline: 'Make it meaningful',
+    description:
+      'Translate ideas into thoughtful experiences, from a first sketch to a prototype people can use.',
+    skills: ['UI/UX', 'Visual storytelling', 'Prototyping'],
+    explore_link: '/overview?track=design-creativity',
+    open: true,
+  },
+  {
+    id: 'development',
+    name: 'Development',
+    tagline: 'Bring ideas to life',
+    description:
+      'Learn the tools, write the code, and build useful things with people who enjoy figuring it out.',
+    skills: ['Web & mobile', 'Cloud', 'AI foundations'],
+    explore_link: '/overview?track=development',
+    open: true,
+  },
 ]
