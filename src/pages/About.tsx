@@ -4,8 +4,11 @@ import { CommitmentSection } from '../components/about/CommitmentSection'
 import { PurposeSection } from '../components/about/PurposeSection'
 import { ValuesSection } from '../components/about/ValuesSection'
 import { InvitationSection } from '../components/overview/InvitationSection'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export function About() {
+  usePageTitle('About')
+
   return (
     <>
       <AboutIntro />

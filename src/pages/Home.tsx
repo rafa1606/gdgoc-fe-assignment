@@ -8,8 +8,11 @@ import { ProjectSection } from '../components/home/ProjectSection'
 import { PromiseBar } from '../components/home/PromiseBar'
 import { TrackDiscoverySection } from '../components/home/TrackDiscoverySection'
 import { InvitationSection } from '../components/overview/InvitationSection'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 export function Home() {
+  usePageTitle()
+
   return (
     <>
       <HeroSection />
