@@ -68,29 +68,35 @@ export function Navbar({ items }: NavbarProps) {
         </button>
       </div>
 
-      {isOpen && (
-        <nav
-          id="mobile-menu"
-          aria-label="Mobile"
-          className="flex flex-col gap-2 border-t border-line px-4 py-4 sm:px-8 xl:hidden"
-        >
-          {items.map((item) => (
-            <NavLink
-              key={item.href}
-              to={item.href}
-              end={item.href === '/'}
-              onClick={closeMenu}
-              className={linkClass}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-          <Link to="/overview" onClick={closeMenu} className={`${ctaClass} mt-2 flex`}>
-            Find your track
-            <ArrowRightIcon />
-          </Link>
-        </nav>
-      )}
+      {/* Tinggi dianimasikan lewat grid-rows, inert: menu tertutup tidak bisa difoku. */}
+      <div
+        className={`grid motion-safe:transition-[grid-template-rows] motion-safe:duration-300 motion-safe:ease-out xl:hidden ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+      >
+        <div className="overflow-hidden">
+          <nav
+            id="mobile-menu"
+            aria-label="Mobile"
+            inert={!isOpen}
+            className={`flex flex-col gap-2 border-t border-line px-4 py-4 sm:px-8 motion-safe:transition-opacity motion-safe:duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+          >
+            {items.map((item) => (
+              <NavLink
+                key={item.href}
+                to={item.href}
+                end={item.href === '/'}
+                onClick={closeMenu}
+                className={linkClass}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+            <Link to="/overview" onClick={closeMenu} className={`${ctaClass} mt-2 flex`}>
+              Find your track
+              <ArrowRightIcon />
+            </Link>
+          </nav>
+        </div>
+      </div>
     </header>
   )
 }
