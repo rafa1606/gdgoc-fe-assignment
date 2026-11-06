@@ -6,7 +6,7 @@ export function LoadingState({ label = 'Loading...' }: LoadingStateProps) {
   return (
     <div
       role="status"
-      className="flex flex-col items-center justify-center gap-3 py-16 text-muted"
+      className="flex animate-fade-in flex-col items-center justify-center gap-3 py-16 text-muted [animation-delay:400ms]"
     >
       <span
         aria-hidden="true"
