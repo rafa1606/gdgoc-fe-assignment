@@ -26,7 +26,7 @@ export function Navbar({ items }: NavbarProps) {
   }
 
   return (
-    <header className="border-b border-line bg-white">
+    <header className="bg-white shadow-[inset_0_-1px_0_var(--color-line)]">
       <div className="flex h-20 items-center justify-between px-4 sm:px-8 xl:h-26 xl:px-16">
         <Link to="/" onClick={closeMenu}>
           <img

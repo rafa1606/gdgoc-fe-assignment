@@ -43,7 +43,7 @@ export function ContactGuidance({ state }: ContactGuidanceProps) {
   return (
     <section
       aria-labelledby="guidance-heading"
-      className="border-t border-line px-4 py-12 sm:px-8 xl:px-24 xl:py-18"
+      className="border-t border-line px-4 py-12 sm:px-8 xl:px-24 xl:pb-18 xl:pt-[71px]"
     >
       <div className="flex flex-col gap-10 lg:flex-row lg:gap-12 xl:gap-20">
         <div className="flex flex-col gap-5 lg:w-2/5 lg:shrink-0 xl:w-105">
