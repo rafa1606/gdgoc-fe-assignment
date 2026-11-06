@@ -32,6 +32,8 @@ export const getFaqs = (category?: string, signal?: AbortSignal) => {
   return request<Faq[]>(`/faqs${query}`, signal)
 }
 
+export const getAllFaqs = (signal?: AbortSignal) => getFaqs(undefined, signal)
+
 export const getStats = (signal?: AbortSignal) => request<Stats>('/stats', signal)
 
 export const getNavigation = (signal?: AbortSignal) => request<NavItem[]>('/navigation', signal)

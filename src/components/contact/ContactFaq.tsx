@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router'
-import { getFaqs } from '../../api/endpoints'
+import { getAllFaqs } from '../../api/endpoints'
 import { useFetch } from '../../hooks/useFetch'
 import type { FetchState } from '../../hooks/useFetch'
 import type { InquiryCategory } from '../../types/api'
@@ -16,9 +16,6 @@ type ContactFaqProps = {
   categoriesState: FetchState<InquiryCategory[]>
 }
 
-// Dibuat di luar komponen supaya referensinya tetap sama dan useFetch tidak mengulang request
-const fetchAllFaqs = (signal: AbortSignal) => getFaqs(undefined, signal)
-
 // Cadangan kalau label kategori belum ada: "joining-learning" menjadi "Joining learning"
 function humanize(slug: string) {
   const text = slug.replace(/-/g, ' ')
@@ -26,10 +23,10 @@ function humanize(slug: string) {
 }
 
 export function ContactFaq({ categoriesState }: ContactFaqProps) {
-  const { state, retry } = useFetch(fetchAllFaqs)
+  const { state, retry } = useFetch(getAllFaqs)
   const [searchParams, setSearchParams] = useSearchParams()
   const [openIds, setOpenIds] = useState<string[]>([])
-  
+
   const sectionRef = useRef<HTMLElement>(null)
 
   // Nilai awal saja: apakah halaman dibuka lewat tautan yang sudah membawa ?faq=...
