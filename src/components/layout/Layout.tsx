@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router'
 import { getNavigation } from '../../api/endpoints'
 import { useFetch } from '../../hooks/useFetch'
 import type { NavItem } from '../../types/api'
+import { ErrorBoundary } from '../ui/ErrorBoundary'
 import { Footer } from './Footer'
 import { Navbar } from './Navbar'
 
@@ -30,7 +31,9 @@ export function Layout() {
       <Navbar items={items} />
       {/* key=pathname: tiap pindah halaman, animasi masuk diputar ulang */}
       <main key={pathname} className="flex-1 motion-safe:animate-page-in">
-        <Outlet />
+        <ErrorBoundary>
+          <Outlet />
+        </ErrorBoundary>
       </main>
       <Footer items={items} />
     </div>
