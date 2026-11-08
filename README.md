@@ -1,75 +1,48 @@
-# React + TypeScript + Vite
+# Google Developer Groups on Campus UGM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ini website komunitas Google Developer Groups on Campus Universitas Gadjah Mada yang saya buat untuk technical assignment Hacker Frontend, Open Recruitment GDGoC UGM 2026/2027. Ada empat halaman (Home, About, Overview, Contact) yang saya buat dari desain Figma pakai React dan Tailwind CSS, dengan data dari REST API publik.
 
-Currently, two official plugins are available:
+## Link penting
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| | |
+|---|---|
+| Live demo | https://gdgoc-fe-assignment.vercel.app |
+| Video presentasi | [Link Google Drive](https://drive.google.com/drive/folders/1uHdF9AkLwzstOkWy_ReQGl48r_ddR04V?usp=drive_link), video langsung di [YouTube](https://youtu.be/1CoNVQEgTuA) |
+| Repository | https://github.com/rafa1606/gdgoc-fe-assignment |
+| API | https://gdgoc-ugm-api.vercel.app/api |
 
-## React Compiler
+## Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Desktop (1440 px)
 
-## Expanding the ESLint configuration
+| Home | About |
+|---|---|
+| <img src="docs/screenshots/home-desktop.png" alt="Halaman Home di desktop" width="480"> | <img src="docs/screenshots/about-desktop.png" alt="Halaman About di desktop" width="480"> |
+| Overview | Contact |
+| <img src="docs/screenshots/overview-desktop.png" alt="Halaman Overview di desktop" width="480"> | <img src="docs/screenshots/contact-desktop.png" alt="Halaman Contact di desktop" width="480"> |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Mobile (393 px)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Home | Overview |
+|---|---|
+| <img src="docs/screenshots/home-mobile.png" alt="Halaman Home di mobile" width="240"> | <img src="docs/screenshots/overview-mobile.png" alt="Halaman Overview di mobile" width="240"> |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+State lain
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| FAQ dengan filter | Error (Try again) |
+|---|---|
+| <img src="docs/screenshots/faq-filter-desktop.png" alt="FAQ dengan filter kategori" width="480"> | <img src="docs/screenshots/error-state-desktop.png" alt="State error dengan tombol Try again" width="480"> |
+| 404 | |
+| <img src="docs/screenshots/404-desktop.png" alt="Halaman 404" width="480"> | |
 
-```
+## Fitur
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- Empat halaman responsif, dari layar 320 px sampai desktop lebar.
+- Data diambil dari API, lengkap dengan state loading, error (ada tombol coba lagi), dan kosong.
+- Error boundary untuk error yang muncul saat render.
+- FAQ di halaman Contact bisa difilter per kategori. Filternya tersimpan di URL, jadi tidak hilang setelah reload dan bisa dibagikan lewat link.
+- Form kontak dengan validasi dan pesan sukses. Pengirimannya simulasi karena API cuma punya endpoint GET.
+- Tombol di kartu format (Overview) membuka Contact dengan kategori yang sudah terpilih.
+- Menu mobile yang buka tutupnya dianimasikan.
+- Gambar dan data halaman lain dimuat di belakang layar. Judul tab beda di tiap halaman, dan ada halaman 404.
+- Animasi mengikuti pengaturan reduced motion di perangkat
